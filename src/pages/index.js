@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import Layout from '../components/layout'
+import Layout from '../components/Layout/layout'
+import Footer from '../components/Footer';
 import Image from '../components/image'
 
 const IndexPage = () => (
@@ -13,6 +14,7 @@ const IndexPage = () => (
       <Image />
     </div>
     <Link to="/page-2/">Go to page 2</Link>
+    <Footer />
   </Layout>
 )
 
