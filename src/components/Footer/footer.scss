@@ -1,4 +1,16 @@
 .footer {
     background-color: #5a5a5a;
-    padding: 100px 150px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 150px;
+}
+
+.socialIcons li{
+    display: inline-block;
+    padding-right: 20px;
+
+    &:last-child {
+        padding-right: 0;
+    }
 }

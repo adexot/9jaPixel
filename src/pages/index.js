@@ -1,21 +1,59 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
+import Img from "gatsby-image"
 
 import Layout from '../components/Layout/layout'
-import Footer from '../components/Footer';
-import Image from '../components/image'
+import Pixel from '../components/Pixel';
+import Button from '../components/Button';
+import './index.scss';
 
-const IndexPage = () => (
+const IndexPage = ({data}) => (
   <Layout>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-    <Footer />
+    <section className='top'>
+      <div>
+        {/* <Img fixed={data.bg.childImageSharp.fixed}/> */}
+      </div>
+      <nav className='navBar'>
+        <Link to='/'>9jaPixel</Link>
+        <ul className='socialIcons'>
+          <li><Link to='/instagram'>Instagram</Link></li>
+          <li><Link to='/twitter'>Twitter</Link></li>
+        </ul>
+      </nav>
+      <div className='row'>
+        <div className='box'>
+          <div className='textContainer'>
+            <h1>Find Naija related Illustrations and Images here.</h1>
+          </div>
+        </div>
+        <div className='box'>
+          <p>Click a Category you want to select from.</p>
+          <div className='buttonContainer'>
+            {new Array(9).fill(1).map((title, index) => <Button title={title}/>)}
+          </div>
+        </div>
+      </div>
+    </section>
+    <section className='listing'>
+      <h3>All Categories</h3>
+      <div className='listingContainer'>
+        {new Array(6).fill(1).map((_, index) => <Pixel />)}
+      </div>
+      <p>Free to use on both commercial and personal projects</p>
+    </section>
   </Layout>
 )
+
+// export const query = graphql`
+// query {
+//   bg: file(relativePath: { eq: "../images/bg.png" }) {
+//     childImageSharp {
+//       fixed(width: 400) {
+//         ...GatsbyImageSharpFixed
+//       }
+//     }
+//   }
+// }
+// `;
 
 export default IndexPage

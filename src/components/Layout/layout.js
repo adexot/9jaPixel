@@ -1,10 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import React, {Fragment} from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby'
-
-import Header from '../NavBar/header'
-import styles from './layout.scss'
+import Footer from '../Footer';
+import './layout.scss';
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -18,23 +17,19 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <>
+      <Fragment>
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: 'Sample' },
+            { name: 'description', content: '9jaPixel - home of flat designs' },
             { name: 'keywords', content: 'home for all custom naija flat images' },
           ]}
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          // className={styles.container}
-        >
-          {children}
-        </div>
-      </>
+        {children}
+        <Footer />
+      </Fragment>
     )}
   />
 )

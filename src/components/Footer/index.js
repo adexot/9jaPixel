@@ -4,7 +4,7 @@ import './footer.scss';
 const Footer = () => (
     <footer className='footer'>
         <div>9jaPixel</div>
-        <ul>
+        <ul className='socialIcons'>
             <li>
                 Instagram
             </li>
