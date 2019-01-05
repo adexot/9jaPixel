@@ -9,38 +9,41 @@ import './index.scss';
 
 const IndexPage = ({data}) => (
   <Layout>
-    <section className='top'>
-      <div>
-        {/* <Img fixed={data.bg.childImageSharp.fixed}/> */}
-      </div>
-      <nav className='navBar'>
-        <Link to='/'>9jaPixel</Link>
-        <ul className='socialIcons'>
-          <li><Link to='/instagram'>Instagram</Link></li>
-          <li><Link to='/twitter'>Twitter</Link></li>
-        </ul>
-      </nav>
-      <div className='row'>
-        <div className='box'>
-          <div className='textContainer'>
-            <h1>Find Naija related Illustrations and Images here.</h1>
+    <main>
+      <section className='top'>
+        <div>
+          {/* <Img fixed={data.bg.childImageSharp.fixed}/> */}
+        </div>
+        <nav className='navBar'>
+          <Link to='/'>9jaPixel</Link>
+          <ul className='socialIcons'>
+            <li><Link to='/instagram'>Instagram</Link></li>
+            <li><Link to='/twitter'>Twitter</Link></li>
+          </ul>
+          <span className='hamburger'></span>
+        </nav>
+        <div className='row'>
+          <div className='box box-left'>
+            <div className='textContainer'>
+              <h1>Find Naija related Illustrations and Images here.</h1>
+            </div>
+          </div>
+          <div className='box box-right'>
+            <p>Click a Category you want to select from.</p>
+            <div className='buttonContainer'>
+              {new Array(9).fill(1).map((title, index) => <Button title={title} />)}
+            </div>
           </div>
         </div>
-        <div className='box'>
-          <p>Click a Category you want to select from.</p>
-          <div className='buttonContainer'>
-            {new Array(9).fill(1).map((title, index) => <Button title={title}/>)}
-          </div>
+      </section>
+      <section className='listing'>
+        <h3>All Categories</h3>
+        <div className='listingContainer'>
+          {new Array(6).fill(1).map((_, index) => <Pixel />)}
         </div>
-      </div>
-    </section>
-    <section className='listing'>
-      <h3>All Categories</h3>
-      <div className='listingContainer'>
-        {new Array(6).fill(1).map((_, index) => <Pixel />)}
-      </div>
-      <p>Free to use on both commercial and personal projects</p>
-    </section>
+        <p>Free to use on both commercial and personal projects</p>
+      </section>
+    </main>
   </Layout>
 )
 

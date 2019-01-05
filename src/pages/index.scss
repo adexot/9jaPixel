@@ -1,21 +1,106 @@
+@import '~breakpoint-sass/stylesheets/breakpoint';
+
+$m: '600px';
+$l: '1024px';
+
+%layout {
+    padding: 0 10px;
+
+    @include breakpoint($m) {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0;
+    }
+}
+
 .top {
-    max-width: 1140px;
-    margin: 0 auto;
+    @extend %layout;
 }
 
 .navBar {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
+
+    .socialIcons {
+        display: none;
+
+        @include breakpoint($m){
+            display: block;
+        }
+    }
+
+    .hamburger {
+        display: block;
+        height: 2px;
+        width: 15px;
+        background-color: #252525;
+        border-radius: 2px;
+        position: relative;
+
+        &::before {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 20px;
+            background-color: #252525;
+            border-radius: 2px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-bottom: 10px;
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 20px;
+            background-color: #252525;
+            border-radius: 2px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin-top: 10px;
+        }
+
+        @include breakpoint($m) {
+            display: none;
+        }
+    }
 }
 
+
+
 .row {
-    display: flex;
-    padding: 80px 0;
+    @include breakpoint($m){
+        display: flex;
+        padding: 80px 0;
+    }
 }
 
 .box {
-    width: 50%;
+    width: 100%;
+
+    @include breakpoint($m) {
+        width: 100%;
+    }
+
+    &-left {
+        text-align: center;
+
+        @include breakpoint($m){
+            text-align: left;
+        }
+    }
+
+    &-right{
+        display: none;
+
+        @include breakpoint($m) {
+            display: block;
+        }
+    }
 }
 
 .textContainer {
@@ -23,13 +108,16 @@
 }
 
 .listing {
-    padding: 40px 0 50px;
+    @extend %layout;
     text-align: center;
+
+    @include breakpoint($m){
+        padding: 40px 0 50px;
+    }
 
     &Container {
         display: flex;
         flex-wrap: wrap;
-        max-width: 1140px;
         justify-content: space-between;
         margin: 60px auto 10px;
     }
