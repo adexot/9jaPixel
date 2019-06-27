@@ -1,10 +1,11 @@
-@import '~breakpoint-sass/stylesheets/breakpoint';
+@import '~breakpoint-sass/stylesheets/_breakpoint.scss';
 
 $m: '600px';
 $l: '1024px';
 
 %layout {
-    padding: 0 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 
     @include breakpoint($m) {
         max-width: 1140px;
@@ -120,5 +121,9 @@ $l: '1024px';
         flex-wrap: wrap;
         justify-content: space-between;
         margin: 60px auto 10px;
+
+        @include breakpoint($m) {
+            display: block;
+        }
     }
 }
